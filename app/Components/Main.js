@@ -53,12 +53,12 @@ var Main = React.createClass({
 								// After we've done the post... then get the updated history
 								helpers.getHistory()
 									.then(function(response){
-										console.log("Current History", response.data);
-										if (response != this.state.history){
-											console.log ("History", response.data);
+										console.log("Saved Current", response.data);
+										if (response != this.state.saved){
+											console.log ("Saved", response.data);
 
 											this.setState({
-												history: response.data
+												saved: response.data
 											})
 										}
 									}.bind(this))	
@@ -76,11 +76,11 @@ var Main = React.createClass({
 		// Get the latest history.
 		helpers.getHistory()
 			.then(function(response){
-				if (response != this.state.history){
-					console.log ("History", response.data);
+				if (response != this.state.saved){
+					console.log ("Saved", response.data);
 
 					this.setState({
-						history: response.data
+						saved: response.data
 					})
 				}
 			}.bind(this))
